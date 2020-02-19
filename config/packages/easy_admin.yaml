@@ -1,0 +1,58 @@
+easy_admin:
+   design:
+        menu:
+            - {label: "Entities"}
+            - label: "Posts"
+              children:
+                - {entity: Post, label: "Posts lists", icon: "th-list"}
+                - {entity: Post, label: "Add post", icon: "plus", params: {action: 'new'}}
+            - label: "Category"
+              children:
+                - {entity: Category, label: "List all categories", icon: "th-list"}
+                - {entity: Category, label: "Add category", icon: "plus", params: {action: 'new'}}
+            - Tag
+            - {label: "Settings"}
+            - {entity: User, icon: "User"}
+   site_name: '<b>Admin</b> panel'
+   user:
+        display_name : true
+        display_avatar: true
+        name_property_path: 'fullName'
+   entities:
+       # List the entity class name you want to manage
+       Post:
+           class: App\Entity\Post
+           label: "Post"
+           form:
+              fields:
+                   - {type: 'group', icon: 'pencil', label: 'Basic Information', css_class: 'col-lg-7'}
+                   - title
+                   - {property: 'content', type: "text_editor"}
+                   - createdAt
+                   - published
+                   - {type: 'group', icon: 'pencil', label: 'Basic Information', css_class: 'col-lg-7'}
+                   - category
+                   - tags
+           list:
+               title: "Articles"
+ 
+            
+               
+            
+          
+
+
+
+
+       Category:
+           class: App\Entity\Category
+       Tag:
+           class: App\Entity\Tag
+           form:
+                fields:
+                    - name
+                    - slug
+           
+            
+       User:
+           class: App\Entity\User
