@@ -1,0 +1,2 @@
+# EasyAdminBundle
+AdminPanel
